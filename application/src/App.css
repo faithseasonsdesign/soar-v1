@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none !important;
+    list-style-type: none;
+    font-family: "Instrument Sans", serif;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+  }
+  
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1140px !important;/*1140*/
+    }
+  }
+  
+  /*navigation coding start here*/
+  .navigation_parent_wrapper {
+    background-color: #ffffff;
+  }
+  
+  .nav-list-items-wrapper {
+    column-gap: 28px;
+  }
+  
+  .contact_link{
+    background-color: #0D4AB3;
+    border-radius: 3pt;
+    padding-left: 25pt;
+    padding-right: 25pt;
+  }
+  
+  .nav_link_item {
+    font-weight: 540;
+    font-size: 11pt;
+  }
+  
+  .home_link {
+    font-size: 1.7rem;
+    color: white !important;
+    background-color: #0D4AB3;
+    font-weight: 700;
+  }
+  
+  @media screen and (max-width: 767px) {
+  
+    .home_link {
+      text-align: center !important;
+    }
+  
+    .nav_list_items_wrapper {
+      display: none;
+    }
+  
+    .hide {
+      display: none;
+    }
+  
+    .show {
+      display: block !important;
+      flex-direction: column;
+      height: 55vh;
+      position: fixed;
+      justify-content: center !important;
+      align-content: center !important;
+      top: 15vh;
+      left: 0;
+      row-gap: 4vh;
+      width: 100%;
+      z-index: 1000;
+    }
+  
+    .nav-list-items-wrapper {
+      background-color: #01020d !important;
+      row-gap: 8pt !important;
+    }
+  
+  }
+  
+  /* Cart button next to hamburger on small devices */
+  .cart-button-small {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    
+    .small_device_menu_wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  /* Hide cart button in the nav list on small devices */
+  @media (min-width: 768px) {
+    .nav_link_item .fa-shopping-cart {
+      font-size: 1rem;
+    }
+  }
+  
+  /*responsiveness coding start here*/
+  @media screen and (min-width: 632px) and (max-width: 767px) {
+    .navigation_child_wrapper {
+      max-width: 558px;
+    }
+  }
+  
+  @media screen and (max-width: 631px) {}
+  
+  @media screen and (min-width: 488px) and (max-width: 575px) {}
+  
+  @media screen and (max-width: 426px) {}
+  
+  @media screen and (max-width: 345px) {
+    .logo-img {
+      height: 80px !important;
+    }
+  
+    .navigation_child_wrapper {
+      max-width: 300px;
+    }
+  }
+  
+  /*responsiveness coding ended here*/

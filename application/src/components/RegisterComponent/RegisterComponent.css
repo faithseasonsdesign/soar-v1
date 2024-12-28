@@ -1,0 +1,54 @@
+
+
+
+.register-component-left-column{
+    background-color: #0D4AB3;
+}
+
+.register-component-main-heading{
+    font-weight: 660;
+}
+
+.register-component-right-main-heading{
+    font-weight: 750;
+    color:#0D4AB3;
+}
+
+.register-component-recommendation-wrapper{
+    background-color: #3d78ee;
+}
+
+.register-component-recommendation-heading{
+    font-size: 1.4rem;
+    font-weight: 650;
+}
+
+.register-component-recommendation-description{
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    font-weight: 100;
+}
+
+.register-component-right-description{
+    font-size: 1.1rem;
+    font-weight: 490;
+}
+
+.register-right-component-link{
+    color: #aea7a7dd;
+    font-weight: 800;
+    text-decoration: underline !important;
+}
+
+.register-component-label{
+    color: #aea7a7dd;
+}
+
+.register-component-register-btn{
+    background-color: #0D4AB3;
+    font-weight:650;
+}
+
+.register-component-register-btn:hover{
+    background-color: #0D4AB3;
+}

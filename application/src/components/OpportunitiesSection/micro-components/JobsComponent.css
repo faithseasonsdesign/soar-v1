@@ -1,0 +1,23 @@
+
+
+.jobs-role-name{
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 700;
+}
+
+.jobs-company-name{
+    font-size: 1.2rem;
+    margin-top: -2pt;
+}
+
+.jobs-apply-btn{
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6.7pt 26pt !important;
+    background-color: #0018a2;
+}
+
+.jobs-apply-btn:hover{
+    background-color: #0018a2;
+}

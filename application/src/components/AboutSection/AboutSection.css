@@ -1,0 +1,39 @@
+
+
+.about-section-main-heading{
+    font-size: 2.7rem;
+    font-weight: 670;
+    font-weight: bold;
+    font-family: "Instrument Sans", sans-serif; /* Match your font from Figma */
+    /* Apply the gradient to text */
+    background: linear-gradient(to right, #0057ED, #0a1df2 56%, #00bde7);
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Ensures the gradient is visible */
+}
+.about-section-description-text-two{
+    font-weight: 670;
+    background: linear-gradient(to right, #0057ED, #0a1df2 56%, #00bde7);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.4rem;
+    text-transform:capitalize;
+}
+.about-section-description-text{
+    color: black;
+    font-weight: 480;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: "Instrument Sans", sans-serif; /* Match your font from Figma */
+    /* Apply the gradient to text */
+    background: linear-gradient(to right, #0057ED, #0a1df2 56%, #00a2e7);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-call-to-action-btn-two{
+    background: linear-gradient(to right, #0018a2, #0a1df2 56%, #00bde7);
+    border-radius: 2pt;
+    font-weight: 520 !important;
+    padding: 12pt 35pt !important;
+    font-weight: bolder;
+}

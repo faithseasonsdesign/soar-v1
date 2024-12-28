@@ -1,0 +1,95 @@
+.hero-section-parent-wrapper {
+    background-image: url('./images/background-image.jpg');
+    background-size: cover;
+    height: 95vh;    
+    background-repeat: no-repeat;
+    /*background-position: center right;*/
+    /*background-attachment: fixed;*/
+}
+
+.hero-section-mask {
+    background: linear-gradient(to bottom, #0054e4c4, #412727d7);
+    mask-repeat: no-repeat;
+    mask-size: cover;
+    /*opacity: 0.86;*/
+    height: 95vh;
+}
+
+.hero-section-heading{
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: black;
+}
+
+.hero-section-btn-wrapper{
+    column-gap: 0.7rem;
+}
+
+.call-to-action-btn-one{
+    border: solid 0.137rem white;
+    border-radius: 2pt;
+    font-weight: 520 !important;
+    padding: 9pt 28pt !important;
+}
+
+.call-to-action-btn-two{
+    background-color: #ffffff;
+    border-radius: 2pt;
+    font-weight: 520 !important;
+    padding: 9pt 35pt !important;
+    color: black !important;
+}
+
+.call-to-action-btn-two-link{
+    color: black;
+    font-weight: 700;
+}
+
+.call-to-action-btn-one:hover{
+    background-color: #0018a2;
+}
+.call-to-action-btn-one:hover{
+    background-color: #0018a2;
+}
+
+.call-to-action-btn-two:hover{
+    background-color: #0018a2;
+    color: rgb(255, 255, 255);
+}
+
+.call-to-action-btn-two:hover .call-to-action-btn-two-link {
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+@media screen and (max-width:767px){
+    .hero-section-parent-wrapper{
+        background-position: center right;
+        color:white;
+        background-position-y: 0;
+        height: 88vh;
+        background-attachment: scroll;
+    }
+    .hero-section-mask {
+        background-color: rgba(0, 0, 0, 0.747);
+        height: 88vh;
+    }
+    .hero-section-heading{
+        color: white !important; 
+        font-size: 26pt;  
+    }
+    .hero-section-sub-heading{
+        font-weight: 150;
+        font-size: 10pt;
+    }
+    .call-to-action-btn-one{
+        margin-top:14pt;
+        font-size: 8pt !important;
+    }
+}
+
+@media screen and (min-width:767px){
+
+}
