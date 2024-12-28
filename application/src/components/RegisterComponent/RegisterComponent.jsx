@@ -49,6 +49,8 @@ export default function RegisterComponent(){
     const [courseSpecialization,setCourseSpecialization] = useState('');
     const [courseSpecializationError,setCourseSpecializationError] = useState('');
 
+    const [registerloading ,setRegisterLoading] = useState(false);
+
     const handleClose = ()=>{
         setOpen(false);
     }
@@ -143,7 +145,7 @@ export default function RegisterComponent(){
                 }
             }else{
                 //access all the information and pass it to the backend
-                const graduateInformation = {
+                const userInformation = {
                     userFirstName : firstName,
                     userLastName : lastName,
                     userEmailAddress : emailAddress,
@@ -155,10 +157,63 @@ export default function RegisterComponent(){
                     userPassword : ``,
                     userOTP : ``
                 }
-                console.log(`Graduate Information :`,graduateInformation);
+                console.log(`Graduate Information :`, userInformation);
 
-                //send information to the backend
-                const response = await axios.post(`/soar-v1/api/registerUser`, { graduateInformation });
+                //send information to the backend    
+                setRegisterLoading(true);            
+                try{
+                    const response = await axios.post(`/soar-v1/api/registerUser`, { userInformation });
+                    if(response.data.success){
+                        if(response.data.status===200){
+                            console.log(response.data.interfaceMessage);
+                            setMessage(`${response.data.interfaceMessage}`);
+                            setSeverity('success');
+                            setColor('green');
+                            setOpen(true); 
+                        }
+                    }else{
+                       
+                        if(response.data.status === 500){
+                            console.log(response.data.interfaceMessage);
+                            setMessage(`${response.data.interfaceMessage}`);
+                            setSeverity('danger');
+                            setColor('red');
+                            setOpen(true); 
+                        }else{
+                            setMessage('');
+                            setOpen(false);
+                        }
+
+                        if(response.data.status === 409){
+                            console.log(response.data.interfaceMessage);
+                            setMessage(`${response.data.interfaceMessage}`);
+                            setSeverity('danger');
+                            setColor('red');
+                            setOpen(true); 
+                            if(response.data.emailAddressExist){
+                                console.log(`Email Address Already In Use`);
+                                setEmailAddressError(`Email Address Already In Use , Please Try Another One `);
+                            }else{
+                                setEmailAddressError('');
+                            }
+
+                            if(response.data.phoneNumberExist){
+                                console.log(`Phone Number Already In Use`);
+                                setPhoneNumberError(`Phone Number Already In Use , Please Try Another One`);
+                            }else{
+
+                            }
+                        }else{
+                            setMessage('');
+                            setOpen(false);
+                        }
+                    }
+                }catch(error){
+                    console.error(`Front-end Catch Error : Failed To Register You : Something Went Wrong : ${error}`);
+                }finally{
+                    setRegisterLoading(false);
+                }
+
             }
         }
     }
@@ -393,12 +448,24 @@ export default function RegisterComponent(){
                             <div className="register-component-right-form-wrapper row gx-1 mt-4">
                                 <div className="col-12 col-sm-12 col-md-12">
                                     <div className="register-component-button-wrapper">
-                                        <button 
-                                            className="register-component-register-btn btn btn-sm rounded-0 border-0 text-white py-4 w-100 rounded-1"
-                                            onClick={handleRegister}
-                                        >
-                                            REGISTER
-                                        </button>
+                                    <button
+                                        className="register-component-register-btn bg-primary btn btn-sm rounded-0 border-0 text-white py-4 w-100 rounded-1"
+                                        onClick={handleRegister}
+                                        disabled={registerloading} // Disable the button while loading
+                                    >
+                                        {registerloading ? (
+                                            <>
+                                                <span
+                                                    className="spinner-border spinner-border-sm  me-2"
+                                                    role="status"
+                                                    aria-hidden="true"
+                                                ></span>
+                                                REGISTERING YOU
+                                            </>
+                                        ) : (
+                                            "REGISTER"
+                                        )}
+                                    </button>
                                     </div>
                                 </div>
                             </div>
@@ -408,7 +475,7 @@ export default function RegisterComponent(){
                     {/* snackbar component start */}
                     <Snackbar
                         open={open}
-                        autoHideDuration={3000}
+                        autoHideDuration={8000}
                         onClose={handleClose}
                         anchorOrigin={{ vertical: "top", horizontal: "center" }}
                     >

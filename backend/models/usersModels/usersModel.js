@@ -8,12 +8,12 @@ const usersSchema = mongoose.Schema({
     userEmailAddress: { 
         type: String, 
         required: true, 
-        unique: true,
+        //unique: true,
     },
     userPhoneNumber: { 
         type: String, 
         required: true, 
-        unique:true,
+        //unique:true,
     },
     userCountry: { type: String, required: true },
     userLocation: { type: String, required: true },
@@ -27,7 +27,8 @@ const usersSchema = mongoose.Schema({
     },
     userOTP: { 
         type: String, 
-        required: true, 
+        required: false,
+        default:'' 
     },
 }, { timestamps: true });
 
