@@ -1,8 +1,10 @@
 const userModel = require("../../models/usersModels/usersModel");
-
+const nodemailer = require("nodemailer");
+const crypto = require("crypto");
 const {
   generateTemporaryPassword,
   generateOTPNumber,
+  registrationEmail
 } = require("../../constants/constants");
 
 const registerUser = async (req, res) => {
@@ -63,9 +65,30 @@ const registerUser = async (req, res) => {
         const registeredUser = await userModel.create(userInformation);
 
         if (registeredUser) {
-        console.log(
-            `Successfully Registered You . Email: ${userInformation.userEmailAddress}`
-        );
+        console.log(`Successfully Registered You . Email: ${userInformation.userEmailAddress}`);
+
+        //send registration email with temporary password
+
+        try{
+            const emailResults = await registrationEmail(
+                userInformation.userEmailAddress,
+                userInformation.userFirstName,
+                userInformation.userLastName,
+                userInformation.userPassword,
+            );
+            console.log(`Registration Email Sent Successfuly :  `,emailResults);
+        }catch(error){
+            console.error(`Back-end Catch Error : Failed To Send Registration Email : ${error.message}`);
+            return res.status(500).json({
+                success:false,
+                message:`Registered You But Failed To Send Registration Email With Temporary Password`,
+                interfaceMessage:`Registered You But Failed To Send Registration Email With Temporary Password`,
+                status:500,
+                emailAddressExist:false,
+                phoneNumberExist: false,
+            })
+        }
+
         return res.status(200).json({
             success: true,
             message: `Successfully registered. Please check your email (${userInformation.userEmailAddress}) for the temporary password.`,

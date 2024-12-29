@@ -132,14 +132,12 @@ export default function RegisterComponent(){
                 //check email address
                 if(!validEmailAddress){
                     setEmailAddressError(`Please Enter Valid Email Address`);
-                    alert(`cant submit form`);
                 }else{
                     setEmailAddressError(``);
                 }
                 //check phone number
                 if(!validPhoneNumber){
                     setPhoneNumberError(`Please Enter Valid South African Phone Number`);
-                    alert(`cant submit form`);
                 }else{
                     setPhoneNumberError('');
                 }
