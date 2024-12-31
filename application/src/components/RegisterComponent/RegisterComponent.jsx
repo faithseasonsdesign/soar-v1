@@ -94,7 +94,6 @@ export default function RegisterComponent(){
     };
     
 
-
     const handleRegister = async ()=>{
     
         //validate emptyness

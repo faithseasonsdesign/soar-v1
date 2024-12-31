@@ -1,13 +1,22 @@
+
+
 const userModel = require("../../models/usersModels/usersModel");
+
 const nodemailer = require("nodemailer");
+
 const crypto = require("crypto");
-const {
-  generateTemporaryPassword,
-  generateOTPNumber,
-  registrationEmail
+const bcrypt = require("bcrypt"); 
+const jwt = require("jsonwebtoken");
+
+//functions export start here
+const { 
+    generateTemporaryPassword , 
+    registrationEmail 
 } = require("../../constants/constants");
 
+//register function
 const registerUser = async (req, res) => {
+
   const { userInformation } = req.body;
 
   try {
@@ -15,9 +24,14 @@ const registerUser = async (req, res) => {
 
     // Generate temporary password and OTP
     const temporaryPassword = generateTemporaryPassword();
-    userInformation.userPassword = temporaryPassword;
+    const hashedPassword = await bcrypt.hash(temporaryPassword,10); //create hashed password
+    userInformation.userPassword = hashedPassword;
 
-    console.log(`Generated Temporary Password: ${temporaryPassword}`);
+    console.log(`Generate Temporary Password  : ${temporaryPassword}`);
+    console.log(`Generated Hashed Temporary Password: ${hashedPassword}`);
+
+    //temp password JWT : expire in 1 minute
+    //const temporaryPasswordToken = jwt.sign();
 
     //check if email and phone number are taken
 
@@ -74,7 +88,7 @@ const registerUser = async (req, res) => {
                 userInformation.userEmailAddress,
                 userInformation.userFirstName,
                 userInformation.userLastName,
-                userInformation.userPassword,
+                temporaryPassword,
             );
             console.log(`Registration Email Sent Successfuly :  `,emailResults);
         }catch(error){
@@ -123,6 +137,18 @@ const registerUser = async (req, res) => {
   }
 };
 
+const userLogin = async (req,res)=>{}
+
+const validateOTP = async (req,res)=>{}
+
+const forgotPassword = async (req,res)=>{}
+
+const createNewPassword = async (req,res)=>{}
+
 module.exports = {
   registerUser,
+  userLogin,
+  validateOTP,
+  forgotPassword,
+  createNewPassword
 };

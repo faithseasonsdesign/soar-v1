@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage/ContactPage';
 import UserLoginPage from './pages/LoginPage/UsersLoginPage/UsersLoginPage';
 import ScrollToTop from './ScrollToTop';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import LoginPage from './pages/LoginPage/LoginPage/LoginPage';
 
 export default function App() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -71,7 +72,7 @@ export default function App() {
         <Route path='opportunities'/>
         <Route path='blogs' />
         {/* <Route path='/login' element={<UserLoginPage/>}/> */}
-        <Route path='login' element={<RegisterPage/>} />
+        <Route path='login' element={<LoginPage/>} />
 
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,21 @@
+
+
+.login-component-main-heading{
+    color: #0D4AB3;
+    font-weight: 800;
+}
+
+.login-component-description{
+    font-weight: 500;
+}
+
+.login-component-label{
+    color: #aea7a7dd;
+    font-weight: 500;
+}
+
+.login-component-input{
+    border: none;
+    outline: none;
+    flex-grow: 1;
+}
